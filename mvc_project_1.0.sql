@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2018 at 05:36 PM
+-- Generation Time: Jun 05, 2018 at 04:25 AM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -21,6 +21,17 @@ SET time_zone = "+00:00";
 --
 -- Database: `mvc_project`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `book_category`
+--
+
+CREATE TABLE `book_category` (
+  `book_category_id` int(11) NOT NULL,
+  `book_category_name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -58,6 +69,7 @@ CREATE TABLE `book_order_detail` (
 CREATE TABLE `book_product` (
   `book_product_id` int(11) NOT NULL,
   `book_type_id` int(11) NOT NULL,
+  `book_category_id` int(11) NOT NULL,
   `book_product_name` varchar(100) NOT NULL,
   `book_product_price` float NOT NULL,
   `book_product_qty` int(11) NOT NULL
@@ -92,6 +104,12 @@ CREATE TABLE `customer` (
 --
 
 --
+-- Indexes for table `book_category`
+--
+ALTER TABLE `book_category`
+  ADD PRIMARY KEY (`book_category_id`);
+
+--
 -- Indexes for table `book_order`
 --
 ALTER TABLE `book_order`
@@ -124,6 +142,12 @@ ALTER TABLE `customer`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `book_category`
+--
+ALTER TABLE `book_category`
+  MODIFY `book_category_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `book_order`
